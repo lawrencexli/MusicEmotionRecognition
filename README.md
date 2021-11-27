@@ -4,6 +4,8 @@ Bucknell University
 
 Spring 2021
 
+**Publication link: https://medium.com/bucknell-ai-cogsci/automated-emotion-recognition-in-songs-993ed84dbc21**
+
 ## Group members
 * Christina Yu
 * Swarup Dhar
