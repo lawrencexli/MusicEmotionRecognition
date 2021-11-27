@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Music Mood</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+        <div class="container" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center">Welcome.</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Select the music mood you want to play:</h3>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form action="/" method="post">
+            <div class="container text-center my-5">
+                <div class="row d-flex justify-content-center">
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" name="moodBtn" type="submit" value="Positive">Positive</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" name="moodBtn" type="submit" value="Neutral">Neutral</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" name="moodBtn" type="submit" value="Negative">Negative</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container my-5 d-flex justify-content-center">
+            <div>
+                {{ song_name }}
+            </div>
+        </div>
+        <div class="container my-5 d-flex justify-content-center">
+            <audio controls="" src="{{ song_url }}">
+            </audio>
+        </div>
+        {% if probability_positive is defined or probability_neutral is defined or probability_negative is defined %}
+        <div class="container my-5 d-flex justify-content-center">
+            <div>
+                Probability of each emotions:
+            </div>
+        </div>
+        
+        <div class="container my-5 d-flex justify-content-center">
+            <div>
+                Positive: {{ probability_positive }}
+            </div>
+        </div>
+        <div class="container my-5 d-flex justify-content-center">
+            <div>
+                Neutral: {{ probability_neutral }}
+            </div>
+        </div>
+        <div class="container my-5 d-flex justify-content-center">
+            <div>
+                Negative: {{ probability_negative }}
+            </div>
+        </div>
+        {% else %}
+        <div></div>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-center mb-4">To add a new song, insert the youtube link below:</h4>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form action="/user_song" method="post">
+            <div class="container mb-4">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                            <input class="border-primary w-50" type="url" name="yt_link">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container mb-5">
+                    <div class="row d-flex justify-content-center">
+                        <!-- <div class="col-sm-3">
+                            <h5 class="text-right">this song is</h5>
+                        </div> -->
+                        <!-- <div class="col-sm-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" role="presentation" href="#">Positive</a>
+                                    <a class="dropdown-item" role="presentation" href="#">Neutral</a>
+                                    <a class="dropdown-item" role="presentation" href="#">Negative</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="">
+                            <button class="btn btn-primary" type="submit" value="Add my song">Add my song</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <hr></hr>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <!--change later-->
+                <div class="col-sm-4 my-3">
+                    <button class="w-100 btn btn-outline-primary" type="button">Feedback</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container text-center my-4">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-sm-3">
+                        <h6>I think this song is:</h6>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="#">Positive</a>
+                                <a class="dropdown-item" role="presentation" href="#">Neutral</a>
+                                <a class="dropdown-item" role="presentation" href="#">Negative</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary" type="button">Submit Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5"></div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
